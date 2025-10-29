@@ -38,10 +38,6 @@ Use the Figma MCP Server to retrieve the following information:
   - Annotations
   - Metadata
 
-### If attachments are referenced:
-
-- Use the **Bitovi MCP Server** to retrieve all `{TICKET_NUMBER}` ticket attachments
-
 ---
 
 ## Step 4: Synthesize and Recreate the Ticket Context
