@@ -7,7 +7,7 @@ You are a **senior software engineer** implementing a feature that automates the
 ## Step 1: Retrieve the {TICKET_NUMBER}
 
 - Accept a `{{TICKET_NUMBER}}` as input
-- Use the **Azure MCP Server** to fetch the full `{TICKET_NUMBER}` details, including:
+- Use the **Azure Devops REST API** to fetch the full `{TICKET_NUMBER}` details, including:
   - Description
   - Metadata
   - Any fields that may contain Figma links or attachments
