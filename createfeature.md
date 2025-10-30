@@ -1,4 +1,4 @@
-<img width="468" height="159" alt="image" src="https://github.com/user-attachments/assets/eab72c0a-78e0-4deb-ae50-fd325e9cb0fb" /># Copilot Prompt: Implement End-to-End Azure Devops Ticket Automation
+# Copilot Prompt: Implement End-to-End Azure Devops Ticket Automation
 
 You are a **senior software engineer** implementing a feature that automates the full processing of Azure Devops (ADO) tickets using REST APIs and MCP (Model-Completion-Provider) servers. Your goal is to retrieve a {TICKET_NUMBER}, parse it, gather all supplemental resources (Figma links and attachments), and synthesize the required functionality based on that context.
 
