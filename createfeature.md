@@ -12,7 +12,7 @@ You are a **senior software engineer** implementing a feature that automates the
   - Description
   - Metadata
   - Any fields that may contain Figma links or attachments
-  - Links tab which may contain a link to wiki page of HLD
+  - Links tab which may contain a link to wiki page of HLD and LLD
 
 ---
 
@@ -40,6 +40,9 @@ Use the Figma MCP Server to retrieve the following information:
   - Annotations
   - Metadata
 
+### If LLD links are detected:
+
+Navigate to the LLD link and parse it to get an understanding of the technical design.
 ---
 
 ## Step 4: Synthesize and Recreate the Ticket Context
@@ -57,6 +60,9 @@ Use the Figma MCP Server to retrieve the following information:
 
 **Architecture & Conventions**
 
+### If LLD links were detected:
+
+- Ensure to follow the LLD especially for API specifications (request and response)
 - Follow existing team conventions and project architecture
 - Prioritize clarity, maintainability, and modularity
 - Only implement what is explicitly described in the ticket—do not add additional features
