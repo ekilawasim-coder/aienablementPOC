@@ -12,6 +12,7 @@ You are a **senior software engineer** implementing a feature that automates the
   - Description
   - Metadata
   - Any fields that may contain Figma links or attachments
+  - Links tab which may contain a link to wiki page of HLD
 
 ---
 
@@ -43,7 +44,7 @@ Use the Figma MCP Server to retrieve the following information:
 
 ## Step 4: Synthesize and Recreate the Ticket Context
 
-- Structure all fetched information (Figma data + attachments) into a coherent format
+- Structure all fetched information (Figma data + HLD + attachments) into a coherent format
 - Ensure attachments are inserted in the correct location in the processed ticket structure:
   - After relevant sections
   - Under specific sub-tasks/comments (if applicable)
@@ -59,6 +60,7 @@ Use the Figma MCP Server to retrieve the following information:
 - Follow existing team conventions and project architecture
 - Prioritize clarity, maintainability, and modularity
 - Only implement what is explicitly described in the ticket—do not add additional features
+- Follow 'copilot-instructions.md' precisely
 
 **UI Implementation**
 
