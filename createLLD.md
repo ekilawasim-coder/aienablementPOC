@@ -57,11 +57,30 @@ Navigate to the HLD link and parse it to get an understanding of the technical d
 
 ## Step 5: Implement the LLD
 
+**CRITICAL: Content Reuse Priority**
+1. **FIRST**: Check if HLD exists and retrieve its content
+2. **ALWAYS**: For ANY section that exists in BOTH HLD and LLD (e.g., Feature Info, Solution Design, NFR Inventory, User Journey, Flowcharts, Sequence Diagrams, Enterprise Architecture):
+   - **COPY the entire section EXACTLY from HLD into LLD**
+   - **DO NOT recreate, rewrite, or modify the content**
+   - **DO NOT use your own knowledge to generate these sections**
+3. **ONLY CREATE NEW**: Sections that are ONLY in LLD and NOT in HLD (typically: detailed Flutter/BLoC implementation, code-level API specs, database table definitions specific to mobile app)
+
+**Content Sources Priority (in order):**
+- **1st Priority**: Copy from HLD (if section exists there)
+- **2nd Priority**: Use Sample LLD template structure
+- **3rd Priority**: Use copilot-instructions.md for code-level patterns
+- **Last Resort**: Generate only if section is completely missing from all sources
+
+**Verification Checklist:**
+- [ ] Retrieved HLD content successfully
+- [ ] Identified which sections exist in HLD
+- [ ] Copied (not recreated) all common sections from HLD to LLD
+- [ ] Only generated new content for LLD-specific implementation details
+
 - Use https://dev.azure.com/ekilawasim/GenAI%20POC/_wiki/wikis/GenAI-POC.wiki/2/Sample-LLD as a reference of the template and information required
-- Use 'copilot-instructions.md' to get an understanding of the codebase and its existing low level design. This should be your base for building the LLD.
-- For sections that are available in both the HLD and LLD, copy them from HLD into LLD do not recreate them
-- Do not create additional APIs than ones that are there in the HLD
-- In case you find gaps in the HLD, please refer to step #7
+- Use 'copilot-instructions.md' to get an understanding of the codebase and its existing low level design patterns
+- **DO NOT** create additional APIs beyond those in the HLD
+- In case you find gaps in the HLD, refer to Step #7
 
 ## Step 6: Upload the LLD
 
