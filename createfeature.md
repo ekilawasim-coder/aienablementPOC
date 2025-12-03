@@ -43,6 +43,7 @@ Use the Figma MCP Server to retrieve the following information:
 ### If LLD links are detected:
 
 Navigate to the LLD link and parse it to get an understanding of the technical design.
+
 ---
 
 ## Step 4: Synthesize and Recreate the Ticket Context
