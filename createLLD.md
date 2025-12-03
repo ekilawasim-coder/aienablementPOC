@@ -31,7 +31,6 @@ You are a **senior software engineer** creating a low-level design of a feature 
 Use the Figma MCP Server to retrieve the following information:
 
 - **Required (minimum):**
-
   - Component code
   - Images
 
@@ -78,6 +77,8 @@ Navigate to the HLD link and parse it to get an understanding of the technical d
 - [ ] No sections are skipped or renumbered
 - [ ] All sections from Sample LLD are present (even if adapted for mobile)
 
+---
+
 ## Step 6: Implement the LLD
 
 **CRITICAL: Content Reuse Priority**
@@ -105,10 +106,171 @@ Navigate to the HLD link and parse it to get an understanding of the technical d
 - **DO NOT** create additional APIs beyond those in the HLD
 - In case you find gaps in the HLD, refer to Step #8
 
+---
+
+## Step 6.1: **[NEW]** Flutter-Specific LLD Requirements (Section 4)
+
+When implementing Section 4 "Solution Technical Implementation" for Flutter features, include:
+
+### 6.1.1 User Access & Navigation ⭐ MANDATORY
+
+**Entry Point Specification:**
+- **Primary Entry Point Location**:
+  - Exact screen name and file path (e.g., `card_service_screen.dart`)
+  - Section/tab where entry point appears (e.g., "Services" tab)
+  - UI component type (CardActionTileWidget, ListTile, Button, etc.)
+  
+- **Navigation Flow Diagram**:
+  ```
+  App Launch → [Screen 1] → [Action] → [Screen 2] → [Action] → [Your Feature]
+  ```
+
+- **Entry Point UI Specifications**:
+  - Icon: `IconType.featureName` or asset path
+  - Title: "User-Facing Title Text"
+  - Subtitle: "Description for user"
+  - Position in list (after/before which feature)
+
+- **Required Parameters**:
+  | Parameter | Type | Source | Required |
+  |-----------|------|--------|----------|
+  | cardId | String | Selected card | Yes |
+  | accountNumber | String | Card details | Yes |
+
+- **Conditional Display Logic**:
+  - Feature flags that control visibility
+  - User eligibility criteria
+  - Card/account status requirements
+  - Error scenarios when feature unavailable
+
+### 6.1.2 Flutter Architecture Pattern
+
+Specify the architecture for this feature:
+- **State Management**: BLoC/Cubit/Provider/Riverpod
+- **Pattern**: BLoC pattern with events/states
+- **Navigation**: Standard Navigator.push or named routes
+
+### 6.1.3 Project Structure
+
+Define the folder structure:
+```
+lib/
+└── features/
+    └── [feature_name]/
+        ├── bloc/
+        │   ├── [feature]_bloc.dart
+        │   ├── [feature]_event.dart
+        │   └── [feature]_state.dart
+        ├── models/
+        │   ├── request/
+        │   └── response/
+        ├── repository/
+        ├── views/
+        └── widgets/
+```
+
+### 6.1.4 BLoC Layer Specifications
+
+**Events:**
+```dart
+abstract class FeatureEvent extends Equatable {
+  const FeatureEvent();
+}
+
+class EventName extends FeatureEvent {
+  final String param;
+  // Specify all events with parameters
+}
+```
+
+**States:**
+```dart
+class FeatureState extends Equatable {
+  final ApiStatus status;
+  final ResponseModel? data;
+  final String? errorMessage;
+  // Specify all state fields
+}
+```
+
+**BLoC Logic:**
+- Event handler flow for each event
+- State transitions
+- Error handling approach
+
+### 6.1.5 Models & Data Layer
+
+**Request Models:**
+- List all request DTOs with fields
+- Serialization approach (json_serializable, manual)
+
+**Response Models:**
+- List all response DTOs with fields
+- Nested objects structure
+
+**Domain Models:**
+- Internal data models
+- Validation rules
+
+### 6.1.6 Repository & API Integration
+
+**Repository Methods:**
+```dart
+class FeatureRepository {
+  Future<ResponseModel> methodName(RequestModel request);
+  // List all methods with signatures
+}
+```
+
+**API Endpoints:**
+| Method | Endpoint | Request | Response |
+|--------|----------|---------|----------|
+| POST | /api/path | RequestModel | ResponseModel |
+
+**Error Handling:**
+- HTTP status code mapping
+- Error message extraction
+- Retry logic
+
+### 6.1.7 UI Layer Specifications
+
+**Screens:**
+- Main screen: Purpose, file path, widgets used
+- List all screens in the flow
+
+**Widgets:**
+| Widget Name | File | Reusable | Purpose |
+|-------------|------|----------|---------|
+| FormWidget | widgets/form_widget.dart | No | User input form |
+
+**Validation Rules:**
+| Field | Rules | Error Message |
+|-------|-------|---------------|
+| Email | Required, email format | "Enter valid email" |
+
+### 6.1.8 Integration Checklist
+
+Files requiring modification for entry point:
+- [ ] `path/to/screen.dart` - Add CardActionTileWidget
+- [ ] `path/to/routes.dart` - Add route (if using named routes)
+- [ ] `path/to/constants.dart` - Add string constants
+
+### 6.1.9 Testing Approach
+
+- Unit tests: Models, BLoC, Repository
+- Widget tests: Key widgets, validation
+- Integration tests: Complete flow
+- Manual test scenarios
+
+---
+
 ## Step 7: Upload the LLD
 
 - Create a sub-page under the HLD
-- Copy the contet of the HLD you have created into this sub-page and copy the title of the HLD replacing the "HLD" in the title with "LLD"
+- Copy the content of the LLD you have created into this sub-page and copy the title of the HLD replacing the "HLD" in the title with "LLD"
+
+---
 
 ## (Optional) Step 8: Create Comments
+
 - In case there are gaps or questions while creating the LLD, add a comment in the LLD with these gaps as bullet points
