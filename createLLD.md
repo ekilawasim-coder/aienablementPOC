@@ -55,7 +55,30 @@ Navigate to the HLD link and parse it to get an understanding of the technical d
 
 ---
 
-## Step 5: Implement the LLD
+## Step 5: Structure the LLD Following the Sample Template
+
+**CRITICAL - FOLLOW SAMPLE LLD STRUCTURE:**
+
+1. **Read the Sample LLD (https://dev.azure.com/ekilawasim/GenAI%20POC/_wiki/wikis/GenAI-POC.wiki/2/Sample-LLD) to identify ALL section headings and their numbers**
+2. **Preserve the exact section numbering from the Sample LLD**
+3. **Use Section 4 "Solution Technical Implementation" for Flutter/mobile code details**
+   - Do NOT create a new section for Flutter implementation
+   - Replace the backend API examples with Flutter/BLoC patterns
+   - Keep the section number as "4", not "8"
+4. **Keep all other section numbers matching the Sample LLD:**
+   - Section 5: ER Diagram (for mobile database schema)
+   - Section 6: Testing
+   - Section 7: Release Monitoring
+   - Section 8: Security checklist
+   - etc.
+
+**VERIFICATION CHECKLIST:**
+- [ ] Section numbers match Sample LLD exactly
+- [ ] Flutter implementation is in Section 4 (not a new section)
+- [ ] No sections are skipped or renumbered
+- [ ] All sections from Sample LLD are present (even if adapted for mobile)
+
+## Step 6: Implement the LLD
 
 **CRITICAL: Content Reuse Priority**
 1. **FIRST**: Check if HLD exists and retrieve its content
@@ -77,15 +100,15 @@ Navigate to the HLD link and parse it to get an understanding of the technical d
 - [ ] Copied (not recreated) all common sections from HLD to LLD
 - [ ] Only generated new content for LLD-specific implementation details
 
-- Use https://dev.azure.com/ekilawasim/GenAI%20POC/_wiki/wikis/GenAI-POC.wiki/2/Sample-LLD as a reference of the template and information required
-- Use 'copilot-instructions.md' to get an understanding of the codebase and its existing low level design patterns
+**Additional Instruction:**
+- Use 'copilot-instructions.md' to get an understanding of the codebase and its existing low level design patterns so you can define the low level design
 - **DO NOT** create additional APIs beyond those in the HLD
-- In case you find gaps in the HLD, refer to Step #7
+- In case you find gaps in the HLD, refer to Step #8
 
-## Step 6: Upload the LLD
+## Step 7: Upload the LLD
 
 - Create a sub-page under the HLD
 - Copy the contet of the HLD you have created into this sub-page and copy the title of the HLD replacing the "HLD" in the title with "LLD"
 
-## (Optional) Step 7: Create Comments
+## (Optional) Step 8: Create Comments
 - In case there are gaps or questions while creating the LLD, add a comment in the LLD with these gaps as bullet points
