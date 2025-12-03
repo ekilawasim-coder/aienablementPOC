@@ -58,8 +58,14 @@ Navigate to the HLD link and parse it to get an understanding of the technical d
 ## Step 5: Implement the LLD
 
 - Use https://dev.azure.com/ekilawasim/GenAI%20POC/_wiki/wikis/GenAI-POC.wiki/2/Sample-LLD as a reference of the template and information required
+- For sections that are available in both the HLD and LLD, copy them from HLD into LLD do not recreate them
+- Do not create additional APIs than ones that are there in the HLD
+- In case you find gaps in the HLD, please refer to step #7
 
 ## Step 6: Upload the LLD
 
 - Create a sub-page under the HLD
 - Copy the contet of the HLD you have created into this sub-page and copy the title of the HLD replacing the "HLD" in the title with "LLD"
+
+## (Optional) Step 7: Create Comments
+- In case there are gaps or questions while creating the LLD, add a comment in the LLD with these gaps as bullet points
