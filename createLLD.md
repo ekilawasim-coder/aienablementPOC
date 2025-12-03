@@ -58,7 +58,7 @@ Navigate to the HLD link and parse it to get an understanding of the technical d
 ## Step 5: Implement the LLD
 
 - Use https://dev.azure.com/ekilawasim/GenAI%20POC/_wiki/wikis/GenAI-POC.wiki/2/Sample-LLD as a reference of the template and information required
-- Use 'copilot-instructions.md' to get an understanding of the codebase and its existing low level design
+- Use 'copilot-instructions.md' to get an understanding of the codebase and its existing low level design. This should be your base for building the LLD.
 - For sections that are available in both the HLD and LLD, copy them from HLD into LLD do not recreate them
 - Do not create additional APIs than ones that are there in the HLD
 - In case you find gaps in the HLD, please refer to step #7
