@@ -89,6 +89,16 @@ Navigate to the HLD link and parse it to get an understanding of the technical d
    - **DO NOT use your own knowledge to generate these sections**
 3. **ONLY CREATE NEW**: Sections that are ONLY in LLD and NOT in HLD (typically: detailed Flutter/BLoC implementation, code-level API specs, database table definitions specific to mobile app)
 
+**CRITICAL: Sequence Diagrams Coverage**
+
+When HLD contains multiple sequence diagrams (e.g., Part 1/3, Part 2/3, Part 3/3, Use Case 002):
+- ✅ DO: Include ALL sequence diagrams from HLD
+- ✅ DO: Add implementation details for EACH diagram
+- ✅ DO: Document callbacks, retries, and async flows
+- ❌ DON'T: Skip "supporting" use cases (they're all mandatory)
+- ❌ DON'T: Only implement the "happy path"
+- ❌ DON'T: Assume background processes can be omitted
+
 **Content Sources Priority (in order):**
 - **1st Priority**: Copy from HLD (if section exists there)
 - **2nd Priority**: Use Sample LLD template structure
@@ -261,6 +271,37 @@ Files requiring modification for entry point:
 - Widget tests: Key widgets, validation
 - Integration tests: Complete flow
 - Manual test scenarios
+
+### 6.1.10 Sequence Diagram Implementation ⭐ MANDATORY
+
+For EACH sequence diagram in the HLD:
+
+1. **Copy the complete HLD sequence diagram** (include the full mermaid diagram)
+2. **Add implementation mapping table**:
+
+| HLD Sequence Step | Implementation Location | Method/Event Name | Notes |
+|-------------------|------------------------|-------------------|-------|
+| Step 1: User clicks X | ScreenName.dart | onTapHandler() | Triggers XEvent |
+| Step 2: API call Y | Repository | methodY() | Returns Future<Response> |
+
+3. **Document async flows**:
+   - Callback handling mechanisms
+   - Background process flows
+   - Retry logic implementation
+   - Error handling for each step
+
+4. **Include ALL use cases from HLD**:
+   - Main flow (all parts if split)
+   - Alternate flows
+   - Error flows
+   - Inquiry/status check flows
+
+VERIFICATION:
+☐ Every HLD sequence diagram has corresponding implementation section
+☐ All sequence steps mapped to code locations
+☐ Callback mechanisms documented
+☐ Async flows explained
+☐ No HLD use case is missing
 
 ---
 
