@@ -35,13 +35,13 @@ and create a low-level design based on that context.
 - Figma connection details are found in the file "FigmaConnection"
 - Use the Figma API to retrieve the following information:
 
-- **Required (minimum):**
-  ◦ Component code
-  ◦ Images
-- **Additional data:**
-  ◦ Component descriptions
-  ◦ Annotations
-  ◦ Metadata
+  - **Required (minimum):**
+    - Component code
+    - Images
+  - **Additional data:**
+    - Component descriptions
+    - Annotations
+    - Metadata
 
 ### If HLD links are detected:
 
