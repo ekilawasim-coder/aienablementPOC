@@ -10,7 +10,7 @@ and create a low-level design based on that context.
 ## Step 1: Retrieve the {TICKET_NUMBER} using Azure DevOps REST API
 
 • Accept a `{{TICKET_NUMBER}}` as input
-• Read 'copilot-instructions' file to get an understanding of the codebase and lessons learnt from previous agents
+• **CRITICAL** Read 'copilot-instructions' file to get an understanding of the codebase and lessons learnt from previous agents
 • ADO connection details are found in the file "ADOConnection"
 • Use the Azure Devops REST API to fetch the full `{TICKET_NUMBER}` details, including:
   ◦ Description
@@ -52,6 +52,141 @@ design
 Retry once and if still failing stop execution saying that you are unable to access the HLD / Figma
 
 **CRITICAL - DO NOT EXECUTE BASED ON ASSUMPTIONS OF HLD OR FIGMA**
+
+---
+
+## ⛔ MANDATORY EXECUTION HALT CONDITIONS
+
+**CRITICAL: Execute validation checkpoints after Steps 2 and 3. Failure to pass = IMMEDIATE HALT.**
+
+### Validation Checkpoint Structure
+
+After completing Step 2 (Parse Ticket) and Step 3 (Gather Supplementary Information), you MUST output:
+
+```
+═══════════════════════════════════════════════════════════════════════════════
+VALIDATION CHECKPOINT - [STEP NUMBER]
+═══════════════════════════════════════════════════════════════════════════════
+☐ Figma Access Status: [✓ SUCCESS / ✗ FAILED]
+  └─ Status Code: [code]
+  └─ Retry Attempted: [YES/NO]
+  └─ Retry Status Code: [code if retried]
+
+☐ HLD Access Status: [✓ SUCCESS / ✗ FAILED]
+  └─ Status Code: [code]
+  └─ Retry Attempted: [YES/NO]
+  └─ Retry Status Code: [code if retried]
+
+☐ Authorization to Proceed: [✓ YES / ✗ NO]
+
+═══════════════════════════════════════════════════════════════════════════════
+```
+
+### Halt Condition Logic
+
+```python
+# MANDATORY: Execute this validation before proceeding to Step 4
+
+figma_success = False
+hld_success = False
+
+# Step 1: Check Figma Access
+if figma_response.status_code != 200:
+    print("⚠️  Figma access failed. Retrying once...")
+    figma_response = retry_figma_access()
+    
+    if figma_response.status_code != 200:
+        print("⛔ EXECUTION HALTED")
+        print(f"   Reason: Unable to access Figma after retry")
+        print(f"   Status Code: {figma_response.status_code}")
+        print(f"   Error: {figma_response.text}")
+        print("\n❌ CANNOT PROCEED WITHOUT FIGMA ACCESS")
+        exit(1)  # MUST HALT HERE
+
+figma_success = True
+
+# Step 2: Check HLD Access
+if hld_response.status_code != 200:
+    print("⚠️  HLD access failed. Retrying once...")
+    hld_response = retry_hld_access()
+    
+    if hld_response.status_code != 200:
+        print("⛔ EXECUTION HALTED")
+        print(f"   Reason: Unable to access HLD after retry")
+        print(f"   Status Code: {hld_response.status_code}")
+        print(f"   Error: {hld_response.text}")
+        print("\n❌ CANNOT PROCEED WITHOUT HLD ACCESS")
+        exit(1)  # MUST HALT HERE
+
+hld_success = True
+
+# Step 3: Final Authorization Check
+if not (figma_success and hld_success):
+    print("⛔ EXECUTION HALTED - MISSING REQUIRED DATA")
+    exit(1)
+
+print("✅ VALIDATION PASSED - PROCEEDING TO STEP 4")
+```
+
+### ❌ FORBIDDEN ACTIONS ON FAILURE
+
+When access fails (after retry), you are ABSOLUTELY FORBIDDEN from:
+
+- ❌ Marking tasks as "completed" in todo lists
+- ❌ Proceeding to Step 4, 5, 6, or any subsequent steps
+- ❌ Creating LLD documents or files
+- ❌ Making assumptions about missing data
+- ❌ Using placeholder text like "TODO: Add Figma screens"
+- ❌ Saying "I'll continue with available data"
+- ❌ Attempting workarounds or alternatives
+- ❌ Updating any files or wikis
+- ❌ Continuing "optimistically"
+
+### ✅ REQUIRED ACTIONS ON FAILURE
+
+When access fails (after retry), you MUST:
+
+1. **Immediately output halt message:**
+   ```
+   ⛔ EXECUTION HALTED: Cannot access [Figma/HLD]
+   Status Code: [code]
+   Error Message: [exact error]
+   Retry Attempted: YES
+   Retry Result: FAILED
+   ```
+
+2. **Stop all execution** - Do not call any more tools
+
+3. **Report to user:**
+   ```
+   I am unable to proceed with LLD creation because:
+   - [Figma/HLD] access failed with status [code]
+   - Retry attempt also failed
+   - Per instructions, I cannot proceed without both Figma and HLD access
+   
+   Please verify:
+   - [Figma token/HLD credentials] are valid
+   - [Resource] is accessible
+   - Permissions are correctly configured
+   ```
+
+### Retry Logic
+
+- **Attempts allowed:** Exactly 1 retry per resource
+- **When to retry:** Only if initial attempt returns non-200 status
+- **What constitutes success:** HTTP 200 response with valid content
+- **What constitutes failure:** Any non-200 status code after retry
+
+### Success Criteria
+
+Proceed to Step 4 ONLY when:
+- ✓ Figma API returned 200 status
+- ✓ HLD API returned 200 status  
+- ✓ Both resources have content length > 0
+- ✓ No errors encountered during data retrieval
+
+---
+
 
 ---
 
