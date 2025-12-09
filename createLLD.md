@@ -1,8 +1,7 @@
 # Copilot Prompt: Implement LLD based on Azure Devops Ticket Automation
 
 You are a senior software engineer creating a low-level design of a feature that automates the full processing of
-Azure Devops (ADO) tickets using REST APIs and MCP (Model-Completion-Provider)
-servers. Your goal is to retrieve a {TICKET_NUMBER}, parse it, gather all
+Azure Devops (ADO) tickets using REST APIs. Your goal is to retrieve a {TICKET_NUMBER}, parse it, gather all
 supplemental resources (Figma links and attachments), gather high-level design details
 and create a low-level design based on that context.
 
@@ -32,8 +31,8 @@ and create a low-level design based on that context.
 ## Step 3: Gather Supplementary Information
 
 ### If Figma links are detected:
-
-Use the Figma MCP Server to retrieve the following information:
+• Figma connection details are found in the file "FigmaConnection"
+• Use the Figma MCP Server to retrieve the following information:
 
 • **Required (minimum):**
   ◦ Component code
