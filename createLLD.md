@@ -23,9 +23,9 @@ and create a low-level design based on that context.
 ## Step 2: Parse the Ticket Content
 
 - Scan the description and comments for:
-  ◦ Figma links (e.g. `https://www.figma.com/file/...`)
-  ◦ Any references to file attachments
-  ◦ Links to the HLD in the 'Links' tab of the feature
+  - Figma links (e.g. `https://www.figma.com/file/...`)
+  - Any references to file attachments
+  - Links to the HLD in the 'Links' tab of the feature
 
 ---
 
