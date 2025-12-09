@@ -22,7 +22,7 @@ and create a low-level design based on that context.
 
 ## Step 2: Parse the Ticket Content
 
-• Scan the description and comments for:
+- Scan the description and comments for:
   ◦ Figma links (e.g. `https://www.figma.com/file/...`)
   ◦ Any references to file attachments
 
@@ -31,13 +31,13 @@ and create a low-level design based on that context.
 ## Step 3: Gather Supplementary Information
 
 ### If Figma links are detected:
-• Figma connection details are found in the file "FigmaConnection"
-• Use the Figma MCP Server to retrieve the following information:
+- Figma connection details are found in the file "FigmaConnection"
+- Use the Figma API to retrieve the following information:
 
-• **Required (minimum):**
+- **Required (minimum):**
   ◦ Component code
   ◦ Images
-• **Additional data:**
+- **Additional data:**
   ◦ Component descriptions
   ◦ Annotations
   ◦ Metadata
