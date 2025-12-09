@@ -95,6 +95,7 @@ structure:
   ◦ Keep screens with "Clarification Required" in the end
   ◦ When there are multiple variants of a screen (e.g. final result screen). Keep screen numbers as sub-numbers (e.g. success variant is 5a, pending is 5b, failure, is 5c, etc.)
 6. For each screen, based on the feature, HLD understanding, copilot-instructions file, and codebase; identify whether a feature is Existing (Re-use), Modified or New
+
 • For MODIFY screens:
   ◦ The screen number and title
   ◦ The actual screen png
