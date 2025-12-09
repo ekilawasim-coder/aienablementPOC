@@ -116,7 +116,8 @@ Below are the standardized templates to use when documenting screens in the LLD.
   - Error handling
   - Integration with SDKs (if applicable)
   - Constraints from HLD (if relevant)
-
+  - Related steps / logic from sequence diagram
+ 
 ---
 
 ##### For BUILD NEW screens
@@ -131,6 +132,7 @@ Below are the standardized templates to use when documenting screens in the LLD.
 - Error handling
 - Integration with SDKs (if applicable)
 - Constraints from HLD (if relevant)
+- Related steps / logic from sequence diagram
 
 ---
 
@@ -139,15 +141,39 @@ Below are the standardized templates to use when documenting screens in the LLD.
 - Actual screen PNG (attach image)
 - File path of the existing screen (use full repository path)
 - Constraints from HLD (if relevant)
+- Related steps / logic from sequence diagram
     
 ### **Java:**
 TBC
 
 **VERIFICATION CHECKLIST:**
-- [ ] Section numbers match Sample LLD exactly
-- [ ] Platform implementation is in Section 4 (not a new section)
-- [ ] No sections are skipped or renumbered
-- [ ] All sections from Sample LLD are present (even if adapted for platform)
+
+- [ ] Section headings and numbers match the Sample LLD exactly (https://dev.azure.com/ekilawasim/GenAI%20POC/_wiki/wikis/GenAI-POC.wiki/2/Sample-LLD)
+- [ ] No sections skipped or renumbered
+- [ ] All Sample LLD sections present (Sections 4–9 etc.)
+- [ ] Platform implementation is inside Section 4 "Solution Technical Implementation" as a subsection (do NOT add a new top-level section)
+
+### Flutter (condensed — critical)
+- [ ] Extract feature images from Figma using credentials referenced in "FigmaConnection"
+- [ ] Identify screens: width = 375 and Type = "Frame" or "Instance" (plus visual verification)
+- [ ] Download PNGs and attach to the LLD
+- [ ] Map each screen to feature description + sequence diagram; mark non-matching screens "Clarification Required"
+- [ ] Order screens in workflow sequence; use sub-numbering for variants (e.g., 5a, 5b)
+- [ ] For every screen include:
+  - Screen number & title, PNG
+  - Repo path(s) (new or modify) — full repository paths
+  - Classification: Reuse / Modify / New
+  - Short notes: UI components, Business logic, API integrations, Navigation, Error handling, SDKs / HLD constraints
+
+### Other platforms
+- [ ] Java: TBC — document placeholder or expected deliverables if details pending
+- [ ] If multiple platforms, each gets a Section 4 subsection with the above checks
+
+### Attachments & traceability
+- [ ] All images attached and accessible from the LLD
+- [ ] Full repository paths used for code changes
+- [ ] Clarification items listed separately with owner and required info
+- [ ] Simple traceability: screen → sequence diagram step → code file
 
 ---
 
