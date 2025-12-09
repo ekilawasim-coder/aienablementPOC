@@ -96,38 +96,48 @@ structure:
   ◦ When there are multiple variants of a screen (e.g. final result screen). Keep screen numbers as sub-numbers (e.g. success variant is 5a, pending is 5b, failure, is 5c, etc.)
 6. For each screen, based on the feature, HLD understanding, copilot-instructions file, and codebase; identify whether a feature is Existing (Re-use), Modified or New
 
-• For MODIFY screens:
-  ◦ The screen number and title
-  ◦ The actual screen png
-  ◦ Specific file paths to modify
-  ◦ Exact changes needed for each component / CTA in the screen as per the below. This can include the onLoad default screen state which can include all 3 subsections below
-  ◦ UI / UX
-    ◦ Complete component list needed (re-use components or new)
-  ◦ Business Logic
-  ◦ API Integrations
-  ◦ Navigation Flows
-  ◦ Error handling
-  ◦ Integration with SDKs
-  ◦ Constraints from HLD (if relevant)
+### Screen Specification Templates
 
-• For BUILD NEW screens:
-  ◦ The screen number and title
-  ◦ The actual screen png
-  ◦ New file paths to create
-  ◦ UI / UX
-    ◦ Complete component list needed (re-use components or new)
-  ◦ Business Logic
-  ◦ API integrations
-  ◦ Navigation Flows
-  ◦ Error handling
-  ◦ Integration with SDKs
-  ◦ Constraints from HLD (if relevant)
+Below are the standardized templates to use when documenting screens in the LLD.
 
-• For REUSE screens:
-  ◦ The screen number and title
-  ◦ The actual screen png
-  ◦ File path of the screen
-  ◦ Constraints from HLD (if relevant)
+---
+
+#### For MODIFY screens
+- Screen number and title
+- Actual screen PNG (attach image)
+- Specific file paths to modify (use full repository paths, e.g. `src/screens/CheckoutScreen.tsx`)
+- Exact changes needed for each component / CTA in the screen. Include the onLoad default screen state if relevant. Cover the following subsections:
+  - UI / UX
+    - Complete component list needed (specify whether to reuse existing components or create new ones)
+  - Business logic
+  - API integrations
+  - Navigation flows
+  - Error handling
+  - Integration with SDKs (if applicable)
+  - Constraints from HLD (if relevant)
+
+---
+
+#### For BUILD NEW screens
+- Screen number and title
+- Actual screen PNG (attach image)
+- New file paths to create (use full repository paths, e.g. `src/screens/NewFeatureScreen.tsx`)
+- UI / UX
+  - Complete component list needed (specify whether to reuse existing components or create new ones)
+- Business logic
+- API integrations
+- Navigation flows
+- Error handling
+- Integration with SDKs (if applicable)
+- Constraints from HLD (if relevant)
+
+---
+
+#### For REUSE screens
+- Screen number and title
+- Actual screen PNG (attach image)
+- File path of the existing screen (use full repository path)
+- Constraints from HLD (if relevant)
     
 **Java:**
 TBC
