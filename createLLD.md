@@ -329,6 +329,8 @@ When implementing Section 4 "Solution Technical Implementation" for platform-spe
 
 ### 6.1.1 User Access & Navigation ⭐ MANDATORY
 
+**Should be under Flutter sub-section**
+
 **Before specifying new UI components or navigation, search codebase for existing patterns:**
 
 1. **Check for existing features:**
@@ -381,6 +383,8 @@ App Launch → [Screen 1] → [Action] → [Screen 2] → [Action] → [Your Fea
 
 ### 6.1.2 Architecture Pattern
 
+**Should be under Flutter sub-section**
+
 Specify the architecture for this feature:
 
 • **State Management**: BLoC/Cubit/Provider/Riverpod (Flutter), MVVM/MVC (Java/Android), Redux/Context (React)
@@ -390,6 +394,8 @@ Specify the architecture for this feature:
 ---
 
 ### 6.1.3 Project Structure
+
+**Should be under Flutter sub-section**
 
 Define the folder structure according to platform conventions:
 
@@ -427,6 +433,8 @@ com.company.project/
 
 ### 6.1.4 State Management / Business Logic Specifications
 
+**Should be under Flutter sub-section**
+
 Define events/actions and states/responses according to platform pattern:
 
 **Events/Actions:**
@@ -460,6 +468,8 @@ class FeatureState extends Equatable {
 
 ### 6.1.5 Models & Data Layer
 
+**Should be under main section 4 section**
+
 **Request Models:**
 • List all request DTOs with fields
 • Serialization approach (json_serializable, Jackson, Gson, etc.)
@@ -475,6 +485,8 @@ class FeatureState extends Equatable {
 ---
 
 ### 6.1.6 Repository & API Integration
+
+**Should be under main section 4 section**
 
 **API Endpoint Completeness:**
 
@@ -514,27 +526,9 @@ class FeatureRepository {
 
 ---
 
-### 6.1.7 UI Layer Specifications
+### 6.1.7 Integration Checklist
 
-**Screens:**
-• Main screen: Purpose, file path, widgets/views used
-• List all screens in the flow
-
-**Components/Widgets:**
-
-| Component | File Path | Reusable | Purpose |
-|-----------|-----------|----------|---------|
-| FormWidget | widgets/form_widget.dart | No | User input form |
-
-**Validation Rules:**
-
-| Field | Rules | Error Message |
-|-------|-------|---------------|
-| Email | Required, email format | "Enter valid email" |
-
----
-
-### 6.1.8 Integration Checklist
+**Should be under main Flutter subsection**
 
 Files requiring modification for entry point:
 
@@ -544,7 +538,7 @@ Files requiring modification for entry point:
 
 ---
 
-### 6.1.9 Testing Approach
+### 6.1.8 Testing Approach
 
 • **Unit tests**: Models, Business Logic, Repository
 • **Widget/Component tests**: Key UI components, validation
