@@ -13,10 +13,10 @@ and create a low-level design based on that context.
 - **CRITICAL** Read 'copilot-instructions' file to get an understanding of the codebase and lessons learnt from previous agents
 - ADO connection details are found in the file "ADOConnection"
 - Use the Azure Devops REST API to fetch the full `{TICKET_NUMBER}` details, including:
-  ◦ Description
-  ◦ Metadata
-  ◦ Any fields that may contain Figma links or attachments
-  ◦ Links tab which may contain a link to wiki page of HLD
+  - Description
+  - Metadata
+  - Any fields that may contain Figma links or attachments
+  - Links tab which may contain a link to wiki page of HLD
 
 ---
 
