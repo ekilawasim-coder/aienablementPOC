@@ -48,7 +48,9 @@ Navigate to the HLD link and parse it to get an understanding of the technical
 design
 
 ### If unable to access HLD or Figma:
+
 Retry and then stop execution
+
 **CRITICAL - DO NOT EXECUTE BASED ON ASSUMPTIONS OF HLD OR FIGMA**
 
 ---
