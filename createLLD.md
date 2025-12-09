@@ -49,7 +49,7 @@ design
 
 ### If unable to access HLD or Figma:
 
-Retry and then stop execution
+Retry once and if still failing stop execution saying that you are unable to access the HLD / Figma
 
 **CRITICAL - DO NOT EXECUTE BASED ON ASSUMPTIONS OF HLD OR FIGMA**
 
