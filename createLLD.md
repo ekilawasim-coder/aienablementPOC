@@ -95,38 +95,38 @@ structure:
   ◦ Keep screens with "Clarification Required" in the end
   ◦ When there are multiple variants of a screen (e.g. final result screen). Keep screen numbers as sub-numbers (e.g. success variant is 5a, pending is 5b, failure, is 5c, etc.)
 6. For each screen, based on the feature, HLD understanding, copilot-instructions file, and codebase; identify whether a feature is Existing (Re-use), Modified or New
-  ◦ For MODIFY screens:
-    - The screen number and title
-    - The actual screen png
-    - Specific file paths to modify
-    - Exact changes needed for each component / CTA in the screen as per the below. This can include the onLoad default screen state which can include all 3 subsections below
-      - UI / UX
-    	  - Complete component list needed (re-use components or new)
-      - Business Logic
-      - API Integrations
-      - Navigation Flows
-      - Error handling
-      - Integration with SDKs
-      - Constraints from HLD (if relevant)
+• For MODIFY screens:
+  ◦ The screen number and title
+  ◦ The actual screen png
+  ◦ Specific file paths to modify
+  ◦ Exact changes needed for each component / CTA in the screen as per the below. This can include the onLoad default screen state which can include all 3 subsections below
+  ◦ UI / UX
+    ◦ Complete component list needed (re-use components or new)
+  ◦ Business Logic
+  ◦ API Integrations
+  ◦ Navigation Flows
+  ◦ Error handling
+  ◦ Integration with SDKs
+  ◦ Constraints from HLD (if relevant)
 
-  ◦ For BUILD NEW screens:
-    - The screen number and title
-    - The actual screen png
-    - New file paths to create
-    - UI / UX
-  	  - Complete component list needed (re-use components or new)
-    - Business Logic
-    - API integrations
-    - Navigation Flows
-    - Error handling
-    - Integration with SDKs
-    - Constraints from HLD (if relevant)
+• For BUILD NEW screens:
+  ◦ The screen number and title
+  ◦ The actual screen png
+  ◦ New file paths to create
+  ◦ UI / UX
+    ◦ Complete component list needed (re-use components or new)
+  ◦ Business Logic
+  ◦ API integrations
+  ◦ Navigation Flows
+  ◦ Error handling
+  ◦ Integration with SDKs
+  ◦ Constraints from HLD (if relevant)
 
-  ◦ For REUSE screens:
-    - The screen number and title
-    - The actual screen png
-    - File path of the screen
-    - Constraints from HLD (if relevant)
+• For REUSE screens:
+  ◦ The screen number and title
+  ◦ The actual screen png
+  ◦ File path of the screen
+  ◦ Constraints from HLD (if relevant)
     
 **Java:**
 TBC
