@@ -47,6 +47,10 @@ Use the Figma MCP Server to retrieve the following information:
 Navigate to the HLD link and parse it to get an understanding of the technical
 design
 
+### If unable to access HLD or Figma:
+Retry and then stop execution
+**CRITICAL - DO NOT EXECUTE BASED ON ASSUMPTIONS OF HLD OR FIGMA**
+
 ---
 
 ## Step 4: Synthesize and Recreate the Ticket Context
@@ -68,15 +72,64 @@ structure:
 2. Preserve the exact section numbering from the Sample LLD
 3. Use Section 4 "Solution Technical Implementation" for platform-specific code details (e.g., Flutter/mobile, Java/backend)
   ◦ Do NOT create a new section for platform implementation
-  ◦ Replace the backend API examples with platform-appropriate patterns (BLoC for Flutter, Spring services for Java, etc.)
+  ◦ Create a subsection of section 4 for the specific platform(s) (e.g. Flutter, Java, etc.)
+  ◦ If needed, create platform-appropriate patterns (BLoC for Flutter, Spring services for Java, etc.) as subsections
   ◦ Keep the section number as "4", not "8" or any other number
-4. Keep all other section numbers matching the Sample LLD:
+5. Keep all other section numbers matching the Sample LLD:
   ◦ Section 5: ER Diagram (for database schema - mobile or backend)
   ◦ Section 6: Testing
   ◦ Section 7: Release Monitoring
   ◦ Section 8: Security checklist
-  ◦ Section 10: PTB - ART Check list
+  ◦ Section 9: PTB - ART Check list
   ◦ etc.
+
+**CRITICAL - PLATFORM SPECIFIC INSTRUCTION:**
+**Flutter:**
+1. Extract all images from the Figma nodes mentioned in the feature (using Figma API and credentials in the file "FigmaConnection")
+2. Identify screens by looking at width size of 375 and Type of "Frame" or "Instance"
+  ◦ Also identify them visually to see they look like a screen
+3. Download these pictures to disk
+4. Based on the description of the feature and the sequence diagram in the LLD, look at each image relate it to the functional flow and identifiy if it is in scope
+  ◦ If the screen does not match the feature description or is not mentioned in the HLD, mark it as "Clarification Required"
+5. Order and number the screens as per the chronological order of the workflow
+  ◦ Keep screens with "Clarification Required" in the end
+  ◦ When there are multiple variants of a screen (e.g. final result screen). Keep screen numbers as sub-numbers (e.g. success variant is 5a, pending is 5b, failure, is 5c, etc.)
+6. For each screen, based on the feature, HLD understanding, copilot-instructions file, and codebase; identify whether a feature is Existing (Re-use), Modified or New
+  ◦ For MODIFY screens:
+    - The screen number and title
+    - The actual screen png
+    - Specific file paths to modify
+    - Exact changes needed for each component / CTA in the screen as per the below. This can include the onLoad default screen state which can include all 3 subsections below
+      - UI / UX
+    	  - Complete component list needed (re-use components or new)
+      - Business Logic
+      - API Integrations
+      - Navigation Flows
+      - Error handling
+      - Integration with SDKs
+      - Constraints from HLD (if relevant)
+
+  ◦ For BUILD NEW screens:
+    - The screen number and title
+    - The actual screen png
+    - New file paths to create
+    - UI / UX
+  	  - Complete component list needed (re-use components or new)
+    - Business Logic
+    - API integrations
+    - Navigation Flows
+    - Error handling
+    - Integration with SDKs
+    - Constraints from HLD (if relevant)
+
+  ◦ For REUSE screens:
+    - The screen number and title
+    - The actual screen png
+    - File path of the screen
+    - Constraints from HLD (if relevant)
+    
+**Java:**
+TBC
 
 **VERIFICATION CHECKLIST:**
 - [ ] Section numbers match Sample LLD exactly
