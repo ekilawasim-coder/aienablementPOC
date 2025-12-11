@@ -30,7 +30,7 @@ You are a **senior software engineer** implementing a feature that automates the
 
 Use the Figma MCP Server to retrieve the following information:
 
-- **Required (minimum):**
+- **Required (MANDATORY):**
   - Component code
   - Images
 
