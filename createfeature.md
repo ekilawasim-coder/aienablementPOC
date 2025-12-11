@@ -4,6 +4,8 @@ You are a **senior software engineer** implementing a feature that automates the
 
 ---
 
+## Step 0: !CRITICAL! Read the copilot-instructions.md files for instructions prior to doing anything else
+
 ## Step 1: Retrieve the {TICKET_NUMBER} using Azure DevOps REST API
 
 - Accept a `{{TICKET_NUMBER}}` as input
