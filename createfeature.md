@@ -5,8 +5,11 @@ You are a **senior software engineer** implementing a feature that automates the
 ---
 
 ## Step 0: !CRITICAL! Read the copilot-instructions.md files for instructions prior to doing anything else
-- Read the full file and understand it
-- No skipping
+- Use read_file tool to read the ENTIRE file from line 1 to the last line
+- Check the total line count in the file and ensure ALL lines are read
+- Read the full file and understand it completely
+- No skipping or partial reads
+- Verify you have read to the end by checking for the last line content
 
 ## Step 1: Retrieve the {TICKET_NUMBER} using Azure DevOps REST API
 
