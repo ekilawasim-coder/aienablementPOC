@@ -52,9 +52,9 @@ You are a **senior software engineer** implementing a feature that automates the
    - Call `mcp_figma_get_variable_defs` to get exact colors, fonts, and design tokens
    - Store these for implementation (hex colors, font styles, spacing values)
 
-3. **OPTIONAL - Design Context (if tool is available):**
+3. **MANDATORY THIRD STEP - Design Context (if tool is available):**
    - Call `mcp_figma_get_design_context` to get component code and asset URLs
-   - If this tool is disabled, proceed with screenshot and variables only
+   - Follow as strictly as possible
 
 4. **SVG Asset Management (CRITICAL if design_context provides asset URLs):**
    - Download ALL SVG assets from the `mcp/asset` URLs to `assets/images/` directory
