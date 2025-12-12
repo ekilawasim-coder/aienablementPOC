@@ -25,6 +25,7 @@ You are a **senior software engineer** implementing a feature that automates the
   - Metadata
   - Any fields that may contain Figma links or attachments
   - Links tab which may contain a link to wiki page of HLD and LLD
+- **IMPORTANT**: Save a copy of the feature extract locally to use later on for reference while developing
 
 ---
 
