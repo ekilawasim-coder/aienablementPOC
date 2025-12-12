@@ -67,12 +67,15 @@ You are a **senior software engineer** implementing a feature that automates the
    - Save only cleaned SVGs with `_clean.svg` or `_fixed.svg` suffix
    - **NEVER use SvgPicture.network()** - Figma URLs expire in 7 days
 
-5. **BEFORE writing ANY Flutter code:**
+5. BEFORE writing ANY Flutter code - Data Extraction (CRITICAL):
    - Re-read the "Figma-to-Flutter Implementation Guidelines" section in copilot-instructions.md
+   - **EXTRACT POSITIONS:** Parse design_context HTML for `left-[Xpx] top-[Ypx]` patterns and create position list
+   - **VERIFY SVG DOWNLOADS:** Confirm all `src="mcp/asset/"` URLs downloaded and cleaned (Step 4 above)
    - Identify the Figma screen dimensions from the screenshot (commonly 375px or 390px width)
-   - Plan responsive calculations: all elements must use screenWidth ratios
+   - Calculate container offset if centered: `(screenWidth - containerWidth) / 2`
    - Identify if Figma coordinates are absolute (screen-based) or relative
    - Extract exact hex colors from variable definitions
+   - **GATE CHECK:** Cannot proceed to Step 5 until position list created + all SVGs verified clean
 
 ### If LLD links are detected:
 
