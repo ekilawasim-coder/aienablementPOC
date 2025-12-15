@@ -20,7 +20,7 @@ You are a senior software engineer implementing a feature that automates the ful
 
 ## Step 1: Retrieve the {TICKET_NUMBER} using Azure DevOps REST API
 
-- Accept a `{{TICKET_NUMBER}}` as input
+- Accept a `{TICKET_NUMBER}` as input
 - ADO connection details are found in the file "ADOConnection"
 - Use the Azure DevOps REST API to fetch the full `{TICKET_NUMBER}` details, including:
   - Description
